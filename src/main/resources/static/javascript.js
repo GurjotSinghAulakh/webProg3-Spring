@@ -64,7 +64,7 @@ function registrerBilletter() {
     }
 
     if (teller == 6) {
-        const objPerson = {
+        let objPerson = {
             Film: $("#utValgtFilm").val(),
             AntallBilletter: $("#antallBilletter").val(),
             Fornavn: $("#fornavn").val(),
