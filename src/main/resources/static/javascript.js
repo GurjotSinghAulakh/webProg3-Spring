@@ -74,6 +74,7 @@ function registrerBilletter() {
         };
 
         $.post("/lagredata", objPerson, function () {
+            console.log("lagre data inni ")
             hentAlle();
         });
 
