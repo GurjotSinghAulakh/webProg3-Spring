@@ -1,4 +1,6 @@
+
 function registrerBilletter() {
+    let teller = 0;
 
     let valgt_film = $("#utValgtFilm").val();
     let valgt_antallbilletter = $("#antallBilletter").val();
@@ -6,8 +8,6 @@ function registrerBilletter() {
     let valgt_etternavn = $("#etternavn").val();
     let valgt_telefonNo = $("#telefonNo").val();
     let valgt_epost = $("#epost").val();
-
-    let teller = 0;
 
     if (valgt_film == "Velg film her") {
         $("#feilmelding_film").html("Velg film!!!");
@@ -73,6 +73,8 @@ function registrerBilletter() {
         Epost: $("#epost").val(),
         };
 
+        console.log("teller " + teller)
+
         $.post("/lagredata", objPerson, function () {
             hentAlle();
         });
@@ -84,7 +86,7 @@ function registrerBilletter() {
         $("#telefonNo").val("");
         $("#epost").val("");
         }
-
+/**
         function hentAlle() {
             $.get("/hentdata", function (data) {
             formaterData(data);
@@ -116,22 +118,47 @@ function registrerBilletter() {
         ut += "</table>";
         $("#utInfo").html(ut);
     }
+ */
 }
 
 function sletterData() {
     $.get("/slettdata", function () {
         $("#utInfo").html("");
-        let ut = '<table class="table table-striped">' +
-            "<tr>" +
-            "<th> Film </th> " +
-            "<th> Antall Billetter </th>" +
-            "<th> Fornavn </th>" +
-            "<th> Etternavn </th>" +
-            "<th> Telefon No </th>" +
-            "<th> Epost </th>" +
-            "</tr>";
-
-    $("#utInfo").html(ut);
     });
 }
+
+
+function hentAlle() {
+    $.get("/hentdata", function (data) {
+        formaterData(data);
+    });
+}
+
+function formaterData(bestillinger) {
+    let ut = '<table class="table table-striped">' +
+        "<tr>" +
+        "<th> Film </th> " +
+        "<th> Antall Billetter </th>" +
+        "<th> Fornavn </th>" +
+        "<th> Etternavn </th>" +
+        "<th> Telefon No </th>" +
+        "<th> Epost </th>" +
+        "</tr>";
+
+    for (let enbestilling of bestillinger) {
+        console.log(bestillinger);
+        ut += "<tr>" +
+            "<th>" + enbestilling.film + "</th>" +
+            "<th>" + enbestilling.antallBilletter + "</th>" +
+            "<th>" + enbestilling.fornavn + "</th>" +
+            "<th>" + enbestilling.etternavn + "</th>" +
+            "<th>" + enbestilling.telefonNo + "</th>" +
+            "<th>" + enbestilling.epost + "</th>" +
+            "</tr>";
+    }
+    ut += "</table>";
+    $("#utInfo").html(ut);
+}
+
+
 
