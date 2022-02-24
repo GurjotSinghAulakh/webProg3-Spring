@@ -1,76 +1,84 @@
+
 function registrerBilletter() {
 
-    let valgt_film = $("#utValgtFilm").val();
-    let valgt_antallbilletter = $("#antallBilletter").val();
-    let valgt_fornavn = $("#fornavn").val();
-    let valgt_etternavn = $("#etternavn").val();
-    let valgt_telefonNo = $("#telefonNo").val();
-    let valgt_epost = $("#epost").val();
+    const valgt_film = $("#utValgtFilm").val();
+    const valgt_antallbilletter = $("#antallBilletter").val();
+    const valgt_fornavn = $("#fornavn").val();
+    const valgt_etternavn = $("#etternavn").val();
+    const valgt_telefonNo = $("#telefonNo").val();
+    const valgt_epost = $("#epost").val();
 
-    let teller = 0;
+    //sjekker om alle inputene er fylt
+    let fylt_film = true;
+    let fylt_antall = true;
+    let fylt_fornavn = true;
+    let fylt_etternavn = true;
+    let fylt_telefonNr = true;
+    let fylt_email = true;
 
     if (valgt_film == "Velg film her") {
         $("#feilmelding_film").html("Velg film!!!");
+        fylt_film = false;
     }
 
     else {
         $("#feilmelding_film").html(" ");
-        teller++;
+
     }
 
     if (valgt_antallbilletter == "" || valgt_antallbilletter <= 0) {
         $("#feilmelding_antall").html("Må skrive noe inn i antall!");
+        fylt_antall = false;
     }
 
     else {
         $("#feilmelding_antall").html(" ");
-        teller++;
     }
 
     if (valgt_fornavn == "") {
         $("#feilmelding_fornavn").html("Må skrive noe inn i fornavnet!");
+        fylt_fornavn = false;
     }
 
     else {
         $("#feilmelding_fornavn").html(" ");
-        teller++;
     }
 
     if (valgt_etternavn == "") {
         $("#feilmelding_etternavn").html("Må skrive noe inn i etternavnet!");
+        fylt_etternavn = false;
     }
 
     else {
         $("#feilmelding_etternavn").html(" ");
-        teller++;
     }
 
     if (valgt_telefonNo == "") {
         $("#feilmelding_telefonNo").html("Må skrive noe inn i telefonnr!");
+        fylt_telefonNr = false;
     }
 
     else {
         $("#feilmelding_telefonNo").html(" ");
-        teller++;
     }
 
     if (valgt_epost == "") {
         $("#feilmelding_epost").html("Må skrive noe inn i epost!");
+        fylt_email = false;
     }
 
     else {
         $("#feilmelding_epost").html(" ");
-        teller++;
     }
 
-    if (teller == 6) {
+    if(fylt_film && fylt_antall && fylt_fornavn && fylt_etternavn && fylt_telefonNr && fylt_email) {
         let objPerson = {
-            Film: $("#utValgtFilm").val(),
-            AntallBilletter: $("#antallBilletter").val(),
-            Fornavn: $("#fornavn").val(),
-            Etternavn: $("#etternavn").val(),
-            TelefonNo: $("#telefonNo").val(),
-            Epost: $("#epost").val(),
+            film: valgt_film,
+            antallBilletter: valgt_antallbilletter,
+            fornavn: valgt_fornavn,
+            etternavn: valgt_etternavn,
+            telefonNo: valgt_telefonNo,
+            epost: valgt_epost,
         };
 
         $.post("/lagredata", objPerson, function () {
@@ -87,13 +95,13 @@ function registrerBilletter() {
     }
 }
 
-function hentAlle() {
-    $.get("/hentdata", function (data) {
+const hentAlle = () => {
+    $.get("/hentdata",function(data){
         formaterData(data);
     });
 }
 
-function formaterData(bestillinger) {
+const formaterData = bestillinger => {
     let ut = '<table class="table table-striped">' +
         "<tr>" +
         "<th> Film </th> " +
