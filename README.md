@@ -1,3 +1,5 @@
+GitHub brukernavn: GurjotSinghAulakh
+
 GitHub repo URL: https://github.com/GurjotSinghAulakh/webProg3-Spring
 
 URL til Heroku app: https://webprog3-project-spring.herokuapp.com/
