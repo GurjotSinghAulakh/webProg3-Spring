@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bestilling av kinobilletter</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <script rel="script" src="javascript.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+</head>
+<body>
+    <div class="style-container">
+        <h1>Bestilling av kinobilletter</h1>
+
+        <div class="table-container">
+            <table class="table table-borderless table-sm table-hover">
+                <tbody>
+                    <tr>
+                        <td><label>Velg film:</label></td>
+                        <td><select id="utValgtFilm">
+                            <option value="Velg film her">Velg film her</option>
+                            <option>Film 1</option>
+                            <option>Film 2</option>
+                            <option>Film 3</option>
+                            <option>Film 4</option>
+                        </select></td>
+                        <td><span id="feilmelding_film"></span></td>
+                        <br><br>
+
+                    <tr>
+                        <td><label>Antall:</label></td>
+                        <td><input type="number" id="antallBilletter"></td>
+                        <td><span id="feilmelding_antall"></span></td>
+                    </tr>
+                    <tr>
+                        <td><label>Fornavn:</label></td>
+                        <td><input type="text" id="fornavn"></td>
+                        <td><span id="feilmelding_fornavn"></span></td>
+                    </tr>
+                    <tr>
+                        <td><label>Etternavn:</label></td>
+                        <td><input type="text" id="etternavn"></td>
+                        <td><span id="feilmelding_etternavn"></span></td>
+                    </tr>
+                    <tr>
+                        <td><label>TelefonNo.:</label></td>
+                        <td><input type="number" id="telefonNo"></td>
+                        <td><span id="feilmelding_telefonNo"></span></td>
+                    </tr>
+                    <tr>
+                        <td><label>Epost:</label></td>
+                        <td><input type="text" id="epost"></td>
+                        <td><span id="feilmelding_epost"></span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="knapp-kontainder">
+            <button type="button" class="btn btn-outline-success" onclick="registrerBilletter()">Kjøp billett</button>
+            <br><br><br>
+
+            <h2>Alle billetter</h2>
+            <div id="utInfo"></div>
+            <br><br><br>
+
+            <button type="button" class="btn btn-outline-danger" onclick="sletterData()">Slett alle billettene</button>
+            <br><br><br>
+        </div>
+    </div>
+</body>
+</html>

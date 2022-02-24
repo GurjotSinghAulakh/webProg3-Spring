@@ -1,0 +1,26 @@
+.style-container {
+    text-align: center;
+    width: 90%;
+    margin: 50px auto;
+    align-content: center;
+}
+
+.table-container {
+    width: 500px;
+    margin: 40px auto;
+}
+
+table tr td{
+    margin: 40px auto;
+}
+
+#person_tabell {
+    margin: 0px auto;
+    text-align: center;
+    align-content: center;
+}
+
+span {
+    color: red;
+}
+
