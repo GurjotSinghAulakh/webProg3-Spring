@@ -1,12 +1,6 @@
-Oblig 3
-=======
-OsloMet brukernavn: s351873
+GitHub repo URL: https://github.com/GurjotSinghAulakh/webProg3-Spring
 
-GitHub brukernavn: GurjotSinghAulakh
-
-GitHub repo URL: https://github.com/DATA1700/oblig-3-GurjotSinghAulakh
-
-URL til Heroku app: https://oblig3-gurjotsinghaulakh.herokuapp.com/
+URL til Heroku app: https://webprog3-project-spring.herokuapp.com/
 
 Fullt navn: Gurjot Singh Aulakh
 
